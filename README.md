@@ -62,6 +62,7 @@ https://github.com/ewfx/aidhp-tech-tribe.git
 2️⃣ Install dependencies
 
 pip install -r requirements.txt
+
 3️⃣ Run the project
 python train.py
 streamlit run app.py
