@@ -69,11 +69,11 @@ credit_cards = {
 @st.cache_data
 def load_model_and_data():
     # Load the trained model
-    model = joblib.load("../model/trained_model.joblib")
+    model = joblib.load("trained_model.joblib")
     print("Loaded trained model.")
 
     # Load the synthetic data (used for encoding consistency)
-    customer_data = pd.read_csv("../dataset/customer_dataset.csv")
+    customer_data = pd.read_csv("customer_dataset.csv")
     print("Loaded synthetic data.")
 
     # Convert Monthly_Spending from string to dictionary
