@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from catboost import CatBoostClassifier
+from xgboost import XGBClassifier
 from imblearn.over_sampling import SMOTE
 import joblib
 import json
@@ -176,7 +176,7 @@ def tune_hyperparameters(X, y):
     }
 
     # Initialize XGBoost model
-    model = CatBoostClassifier(random_state=42, eval_metric="logloss")
+    model = XGBClassifier(random_state=42, eval_metric="logloss")
 
     # Grid search
     grid_search = GridSearchCV(model, param_grid, scoring='accuracy', cv=3, verbose=2, n_jobs=-1)
