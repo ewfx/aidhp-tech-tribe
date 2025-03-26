@@ -69,7 +69,7 @@ credit_cards = {
 @st.cache_data
 def load_model_and_data():
     # Load the trained model
-    model = joblib.load("trained_model.joblib")
+    model = joblib.load("model.joblib")
     print("Loaded trained model.")
 
     # Load the synthetic data (used for encoding consistency)
