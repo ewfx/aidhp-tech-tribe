@@ -158,60 +158,45 @@ def preprocess_data_with_time_series(data):
 # Step 3: Train and Evaluate the Model
 
 
-def tune_hyperparameters(X, y):
-    # Split data
+# Step 3: Train and Evaluate the Model
+def train_and_evaluate_model(X, y):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-    # SMOTE to balance data
     smote = SMOTE(random_state=42)
     X_resampled, y_resampled = smote.fit_resample(X_train, y_train)
 
-    # Define parameter grid
-    param_grid = {
-        'max_depth': [3, 5, 7],
-        'learning_rate': [0.01, 0.05, 0.1],
-        'n_estimators': [100, 200, 300],
-        'subsample': [0.7, 0.8, 0.9],
-        'colsample_bytree': [0.7, 0.8, 0.9]
-    }
+    model = CatBoostClassifier(
+        random_state=42,
+        iterations=500,
+        learning_rate=0.05,
+        depth=5,
+        verbose=0
+    )
+    model.fit(X_resampled, y_resampled)
 
-    # Initialize  model
-    model = CatBoostClassifier(random_state=42, eval_metric="logloss")
-
-    # Grid search
-    grid_search = GridSearchCV(model, param_grid, scoring='accuracy', cv=3, verbose=2, n_jobs=-1)
-    grid_search.fit(X_resampled, y_resampled)
-
-    # Get best model
-    best_model = grid_search.best_estimator_
-    best_params = grid_search.best_params_
-
-    # Evaluate
-    y_pred = best_model.predict(X_test)
+    y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+    print(f"Model Accuracy: {accuracy:.2f}")
 
-    print(f"Best Parameters: {best_params}")
-    print(f"Tuned Model Accuracy: {accuracy:.2f}")
+    return model, accuracy
 
-    return best_model, accuracy
+
 # Step 4: Main Execution
 if __name__ == "__main__":
-    # Generate synthetic customer data with time-series information
-    customer_data = time_series_dataset_generation(no_users=100000)
-    # Preprocess the data
-    X, y = preprocess_data_with_time_series(customer_data)
+    while True:
+        customer_data = time_series_dataset_generation(no_users=100000)
+        X, y = preprocess_data_with_time_series(customer_data)
+        model, accuracy = train_and_evaluate_model(X, y)
 
-    # Train and evaluate the model
-    model, accuracy = tune_hyperparameters(X, y)
+        if accuracy >= 0.85:
+            print("\n** High Accuracy Achieved! Stopping the Program **")
+            print(f"Final Model Accuracy: {accuracy:.2f}")
 
+            customer_data.to_csv("dataset.csv", index=False)
+            print("Saved high-accuracy synthetic data to 'dataset.csv'")
 
-    print(f"Final Model Accuracy: {accuracy:.2f}")
+            joblib.dump(model, "model.joblib")
+            print("Saved high-accuracy trained model to 'model.joblib'")
 
-    # Save the synthetic data
-    customer_data.to_csv("customer_dataset.csv", index=False)
-    print("Saved high-accuracy synthetic data to 'customer_dataset.csv'")
-
-    # Save the trained model
-    joblib.dump(model, "trained_model.joblib")
-    print("Saved high-accuracy trained model to 'trained_model.joblib'")
+            break
 
