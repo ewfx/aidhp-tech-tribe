@@ -1,60 +1,78 @@
-# 🚀 Project Name
+# 🚀 Hyper-Personalized Marketing for Financial Products
 
 ## 📌 Table of Contents
-- [Introduction](#introduction)
-- [Demo](#demo)
-- [Inspiration](#inspiration)
-- [What It Does](#what-it-does)
-- [How We Built It](#how-we-built-it)
-- [Challenges We Faced](#challenges-we-faced)
-- [How to Run](#how-to-run)
-- [Tech Stack](#tech-stack)
-- [Team](#team)
+- [🎯 Introduction](#-introduction)
+- [🎥 Demo](#-demo)
+- [💡 Inspiration](#-inspiration)
+- [⚙️ What It Does](#-what-it-does)
+- [🛠️ How We Built It](#-how-we-built-it)
+- [🚧 Challenges We Faced](#-challenges-we-faced)
+- [🏃 How to Run](#-how-to-run)
+- [🏗️ Tech Stack](#-tech-stack)
+- [👥 Team](#-team)
 
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
+Financial customers are more likely to buy products when they feel an emotional connection with the brand. This project uses **Generative AI** and **Machine Learning** to create personalized marketing campaigns based on customer preferences, spending habits, and financial goals. Instead of generic offers, our model generates tailored recommendations, improving engagement and conversion rates.
+
+---
 
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
+🔗 **Live Demo**: In the artifacts directory
 
-![Screenshot 1](link-to-image)
+---
 
 ## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+Marketing reports show that **generic promotions fail to engage modern customers**. People expect **personalized recommendations** that match their lifestyle. Traditional marketing struggles to offer this level of customization at scale.  
+This project leverages **AI-driven automation** to generate **hyper-personalized** financial offers, eliminating the need for manual campaign creation.
+
+---
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+✅ **Analyzes Customer Behavior**: Uses financial data to understand spending habits.  
+✅ **Generates Personalized Offers**: AI-driven recommendations based on individual financial profiles.  
+✅ **Automates Marketing Campaigns**: Removes manual effort in designing customer-specific promotions.  
+✅ **Enhances Customer Engagement**: Creates emotional connections with financial brands.
+
+---
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
+- **Data Preprocessing**: Feature engineering on customer financial data.
+- **Machine Learning Model**: **CatBoostClassifier** for predictive analysis.
+- **Oversampling**: **SMOTE** to handle class imbalance.
+- **Retrieval-Augmented Generation (RAG)**: Enhances recommendations.
+- **Web Interface**: Built using **Streamlit** for easy interaction.
+
+---
 
 ## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+⚡ **Data Imbalance**: Solved using **SMOTE** to improve model training.  
+⚡ **Feature Selection**: Required extensive tuning to choose the best financial indicators.  
+⚡ **Real-Time Recommendation Accuracy**: Optimized model hyperparameters for better results.
+
+---
 
 ## 🏃 How to Run
-1. Clone the repository  
-   ```sh
-   git clone https://github.com/your-repo.git
-   ```
-2. Install dependencies  
-   ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
-   ```
-3. Run the project  
-   ```sh
-   npm start  # or python app.py
-   ```
 
-## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+1️⃣ Clone the repository
 
-## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+https://github.com/ewfx/aidhp-tech-tribe.git
+
+2️⃣ Install dependencies
+
+pip install -r requirements.txt
+3️⃣ Run the project
+python train.py
+streamlit run app.py
+
+🏗️ Tech Stack
+🔹 Frontend: Streamlit
+🔹 Backend: FastAPI
+🔹 Machine Learning: CatBoost, Scikit-learn
+🔹 Database: Elasticsearch
+🔹 Other: OpenAI API, Hugging Face
+
+👥 Team
+👤 Kashish Yusuf
+👤 Sankeerth Sankar
