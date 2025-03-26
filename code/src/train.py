@@ -202,7 +202,7 @@ if __name__ == "__main__":
     X, y = preprocess_data_with_time_series(customer_data)
 
     # Train and evaluate the model
-    model, accuracy = train_and_evaluate_model(X, y)
+    model, accuracy = tune_hyperparameters(X, y)
 
 
     print(f"Final Model Accuracy: {accuracy:.2f}")
