@@ -192,7 +192,7 @@ if __name__ == "__main__":
             print("\n** High Accuracy Achieved! Stopping the Program **")
             print(f"Final Model Accuracy: {accuracy:.2f}")
 
-            customer_data.to_csv("dataset.csv", index=False)
+            customer_data.to_csv("customer_dataset.csv", index=False)
             print("Saved high-accuracy synthetic data to 'dataset.csv'")
 
             joblib.dump(model, "model.joblib")
