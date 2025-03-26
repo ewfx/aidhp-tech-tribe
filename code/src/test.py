@@ -6,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 
 from sklearn.model_selection import train_test_split
 
+
 # Load Data
 df = pd.read_csv("data/dataset.csv")
 df["text"] = df.apply(lambda row: f"{row['age']} {row['annual_income']} {row['credit_score']} {row['investment_portfolio']}", axis=1)
