@@ -208,10 +208,10 @@ if __name__ == "__main__":
     print(f"Final Model Accuracy: {accuracy:.2f}")
 
     # Save the synthetic data
-    customer_data.to_csv("../dataset/customer_dataset.csv", index=False)
+    customer_data.to_csv("customer_dataset.csv", index=False)
     print("Saved high-accuracy synthetic data to 'customer_dataset.csv'")
 
     # Save the trained model
-    joblib.dump(model, "../model/trained_model.joblib")
+    joblib.dump(model, "trained_model.joblib")
     print("Saved high-accuracy trained model to 'trained_model.joblib'")
 
